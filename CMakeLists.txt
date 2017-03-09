@@ -580,7 +580,8 @@ IF(NOT HAVE_WINDOWS_H)
     IF(HAVE_PTHREAD)
         SET(EXTRA_CFLAGS "${EXTRA_CFLAGS} -pthread")
         SET(CMAKE_REQUIRED_FLAGS "${CMAKE_REQUIRED_FLAGS} -pthread")
-        SET(EXTRA_LIBS ${EXTRA_LIBS} -pthread)
+        # http://stackoverflow.com/questions/17841140/os-x-clang-pthread
+        # SET(EXTRA_LIBS ${EXTRA_LIBS} -pthread)
     ENDIF()
 
     CHECK_LIBRARY_EXISTS(pthread pthread_create "" HAVE_LIBPTHREAD)
